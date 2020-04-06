@@ -2,11 +2,35 @@
 <html>
 <head>
     <title>job finder</title>
+    <style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+
+li h1 {
+  display: block;
+  color: white;
+  text-align: center;
+  align:center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+</style>
 </head>
 <body>
-    <?php
-    
-    ?>
+   <ul style="align:center;">
+  <li><h1>Job Finder</h1></li>
+</ul>
         <form method="POST">
             <table>
                 <tr><td><label for="name">Enter Name</label></td><td><input type="text" name="name" id="name" required></td></tr>
@@ -29,12 +53,12 @@
              die("Connection failed: " . $conn->connect_error);}
      $q="select distinct(skill) from job ";
             $r=mysqli_query($conn, $q );
-            echo "<p> jobs are avilable for these skills you can search jobs by entering these keywords ";
+            echo "<h2> jobs are avilable for these skills you can search jobs by entering these keywords ";
           while($ro = mysqli_fetch_assoc($r)) 
           {
               echo $ro["skill"].", ";
           }
-            echo "</p>";
+            echo "</h2>";
             if(isset($_POST['submit']))
             {
                 $skill=$_POST['skill'];
